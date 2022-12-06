@@ -28,5 +28,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Program Files (x86)/H2/bin/h2-2.1.214.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pjsu2/Downloads/mybatis-3.5.11/mybatis-3.5.11/mybatis-3.5.11.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

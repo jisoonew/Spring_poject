@@ -33,7 +33,7 @@
     <p></p>
     <div class="form-group">
       <label for="name">Name:</label>
-      <input type="text" class="form-control" id="name" name="username">
+      <input type="text" class="form-control" id="name" name="">
     </div>
     <p></p>
     <div class="form-group">
@@ -50,7 +50,6 @@
     <div style="text-align: center;">
     <button type="button" class="btn btn-warning join">회원가입</button>
     </div>
-    
   </div>
 </form>
 </body>
