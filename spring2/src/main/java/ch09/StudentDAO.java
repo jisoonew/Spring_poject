@@ -12,7 +12,6 @@ public class StudentDAO {
 	
 	Connection conn = null;
 	PreparedStatement pstmt;
-	ResultSet rs;
 	
 	final String JDBC_DRIVER = "org.h2.Driver";
 	final String JDBC_URL = "jdbc:h2:tcp://localhost/~/jwbookdb";
@@ -21,8 +20,6 @@ public class StudentDAO {
 		try {
 			Class.forName(JDBC_DRIVER);
 			conn = DriverManager.getConnection(JDBC_URL, "jwbook", "1234");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -66,7 +63,6 @@ public class StudentDAO {
 			
 			while(rs.next()) {
 				Student s = new Student();
-				
 				s.setId(rs.getInt("id"));
 				s.setUsername(rs.getString("username"));
 				s.setUniv(rs.getString("univ"));

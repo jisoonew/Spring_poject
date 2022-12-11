@@ -24,3 +24,4 @@ public class LoginAndJoin {
 		this.password = password;
 	}
 }
+

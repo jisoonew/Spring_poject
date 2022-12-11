@@ -9,7 +9,7 @@
 </head>
 <body>
 <h2>학생정보</h2>[<a href="/studentControl">새로고침</a>]
-
+<hr>
 <table border="1">
 <tr><th>id</th><th>이름</th><th>대학</th><th>생일</th><th>이메일</th></tr>
 <c:forEach items="${students}" var="s">

@@ -30,12 +30,9 @@ public class StudentController extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		String action = request.getParameter("action");
 		String view = "";
-		
-		try {
 		if(action == null) {
 			getServletContext().getRequestDispatcher("/studentControl?action=list")
 			.forward(request, response);
-			
 		} else {
 			switch(action) {
 			case "list": view = list(request, response); break;
@@ -44,8 +41,6 @@ public class StudentController extends HttpServlet {
 			getServletContext().getRequestDispatcher("/ch09/"+view)
 			.forward(request, response);
 		}
-		
-		} catch (Exception e) {e.printStackTrace();}
 	}
 
 	public String list(HttpServletRequest request, HttpServletResponse response) {

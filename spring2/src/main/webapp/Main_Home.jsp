@@ -3,6 +3,8 @@
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     
 <!DOCTYPE html>
+<html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,8 +29,8 @@
     <div class="container-fluid">
 
       <!-- 로고 사진 누르면 홈으로 돌아오기 -->
-      <a class="navbar-brand" href="main_home.html">
-        <img src="./요리조리1.png" width="200" height="70" style="border: 01px solid rgba(0, 0, 0, 0.363);">
+      <a class="navbar-brand" href="Main_Home.jsp">
+        <img src="./로고.png" width="200" height="70">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,16 +53,16 @@
             </a>
 
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">신제품</a></li>
+              <li><a class="dropdown-item" href="newPro.html">신제품</a></li>
               <hr class="dropdown-divider">
 
-              <li><a class="dropdown-item" href="#">인기제품</a></li>
+              <li><a class="dropdown-item" href="bestPro.html">인기상품</a></li>
               <hr class="dropdown-divider">
 
-              <li><a class="dropdown-item" href="#">카테고리</a></li>
-              <hr class="dropdown-divider">
+              <!-- <li><a class="dropdown-item" href="#">카테고리</a></li>
+              <hr class="dropdown-divider"> -->
 
-              <li><a class="dropdown-item" href="#">전체보기</a></li>
+              <li><a class="dropdown-item" href="allPro.jsp">전체보기</a></li>
             </ul>
 
           </li>
@@ -74,50 +76,37 @@
             </a>
 
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="recipe.html">FAQ</a></li>
+              <li><a class="dropdown-item" href="faq.html">FAQ</a></li>
                 <hr class="dropdown-divider">
 
-              <li><a class="dropdown-item" href="#">공지사항</a></li>
+              <li><a class="dropdown-item" href="announce.html">공지사항</a></li>
               <hr class="dropdown-divider">
 
-              <li><a class="dropdown-item" href="#">문의사항</a></li>
+              <li><a class="dropdown-item" href="ask.html">문의사항</a></li>
             </ul>
 
           </li>
 
-        <!-- <a id="main_name" style="text-decoration-line: none; color:black" class="mx-4"></a>
-
-        <a href="admin_login.html" style="color: white ;">
-          <form class="d-flex" role="logout">
-            <button id="logoutmenu" type="button" class="btn btn-light">로그아웃</button>
-          </form>
-        </a> -->
-
       </div>
 
-      <!-- 오른쪽 상단에 내 정보 확인할 수 있는 오프캔버스 버튼 -->
-      <button class="btn btn-primary btn-danger" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">=</button>
-
+      <a href="login.html" style="color: white ;">
+        <form class="d-flex " role="logout">
+          <button id="logoutmenu" type="button" class="btn btn-light justify-content-md-end">로그인</button>
+        </form>
+      </a>
+      
     </div>
   </nav>
 
-  <!-- 오프 캔버스 버튼 누르면 나오는 작은 페이지 구성 -->
-<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-  <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-  </div>
-  <div class="offcanvas-body">
-    ...
-  </div>
-</div>
-  
 
-  <br>
+   <!-- ==================================== 여기까지 네비게이션 바 내용이였음 ======================================== -->
+  <img src="./화장품2.jpg" class="w-100 h-auto"; >
 
   <!-- 최신 레시피 캐러셀 -->
   <!-- <h3 style="color:black; text-align: center;">
-    < 최신 레시피>
+
+    &lt;신제품&gt;
+    
   </h3>
   <br>
   <div id="carouselExampleCaptions" class="carousel carousel-dark slide" data-bs-ride="carousel">
