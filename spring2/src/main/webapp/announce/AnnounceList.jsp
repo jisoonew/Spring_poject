@@ -38,7 +38,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="main_home.html">Home</a>
+            <a class="nav-link active" aria-current="page" href="Main_Home.jsp">Home</a>
           </li>
 
           <!-- 화장품 드롭다운 -->

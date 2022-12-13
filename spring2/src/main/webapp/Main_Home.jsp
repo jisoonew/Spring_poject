@@ -30,7 +30,7 @@
 
       <!-- 로고 사진 누르면 홈으로 돌아오기 -->
       <a class="navbar-brand" href="Main_Home.jsp">
-        <img src="로고.png" width="200" height="70">
+        <img src="img/로고.png" width="200" height="70">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -100,7 +100,7 @@
 
 
    <!-- ==================================== 여기까지 네비게이션 바 내용이였음 ======================================== -->
-  <img src="화장품2.jpg" class="w-100 h-auto"; >
+  <img src="img/화장품2.jpg" class="w-100 h-auto"; >
 
   <!-- 최신 레시피 캐러셀 -->
   <!-- <h3 style="color:black; text-align: center;">
