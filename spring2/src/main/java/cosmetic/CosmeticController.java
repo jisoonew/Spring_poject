@@ -1,4 +1,4 @@
-package ch10;
+package cosmetic;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
@@ -19,19 +19,19 @@ import javax.servlet.http.Part;
 import org.apache.commons.beanutils.BeanUtils;
 
 
-@WebServlet("/news.nhn")
+@WebServlet("/cosmetic.nhn")
 @MultipartConfig(maxFileSize=1024*1024*2, location="c:/Temp/img")
-public class NewsController extends HttpServlet {
+public class CosmeticController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-	private NewsDAO dao;
+	private CosmeticDAO dao;
 	private ServletContext ctx;
 	
-	private final String START_PAGE = "ch10/newsList.jsp";
+	private final String START_PAGE = "cosmetic/CosmeticList.jsp";
 	
 	public void init(ServletConfig config) throws ServletException {
 		super.init(config);
-		dao = new NewsDAO();
+		dao = new CosmeticDAO();
 		ctx = getServletContext();		
 	}
 
@@ -39,13 +39,13 @@ public class NewsController extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		String action = request.getParameter("action");
 		
-		dao = new NewsDAO();
+		dao = new CosmeticDAO();
 		
 		Method m;
 		String view = null;
 		
 		if (action == null) {
-			action = "listNews";
+			action = "listCosmetic";
 		}
 		
 		try {
@@ -55,7 +55,7 @@ public class NewsController extends HttpServlet {
 			e.printStackTrace();
 			ctx.log("요청 action 없음!!");
 			request.setAttribute("error", "action 파라미터가 잘못 되었습니다!!");
-			view = START_PAGE;
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -69,68 +69,45 @@ public class NewsController extends HttpServlet {
 		}
 	}
     
-    public String addNews(HttpServletRequest request) {
-		News n = new News();
-		try {						
-	        Part part = request.getPart("file");
-	        String fileName = getFilename(part);
-	        if(fileName != null && !fileName.isEmpty()){
-	            part.write(fileName);
-	        }	        
-			BeanUtils.populate(n, request.getParameterMap());
-			
-	        n.setImg("/img/"+fileName);
 
-			dao.addNews(n);
-		} catch (Exception e) {
-			e.printStackTrace();
-			ctx.log("뉴스 추가 과정에서 문제 발생!!");
-			request.setAttribute("error", "뉴스가 정상적으로 등록되지 않았습니다!!");
-			return listNews(request);
-		}
-		
-		return "redirect:/news.nhn?action=listNews";
-		
-	}
-
-	public String deleteNews(HttpServletRequest request) {
-    	int aid = Integer.parseInt(request.getParameter("aid"));
+	public String deleteCosmetic(HttpServletRequest request) {
+    	int aid = Integer.parseInt(request.getParameter("cosmetic_id"));
 		try {
-			dao.delNews(aid);
+			dao.delCosmetic(aid);
 		} catch (SQLException e) {
 			e.printStackTrace();
-			ctx.log("뉴스 삭제 과정에서 문제 발생!!");
-			request.setAttribute("error", "뉴스가 정상적으로 삭제되지 않았습니다!!");
-			return listNews(request);
+			ctx.log("화장품 삭제 과정에서 문제 발생!!");
+			request.setAttribute("error", "화장품 정보가 정상적으로 삭제되지 않았습니다!!");
+			return listCosmetic(request);
 		}
-		return "redirect:/news.nhn?action=listNews";
+		return "redirect:/cosmetic.nhn?action=listCosmetic";
 	}
 
-	public String listNews(HttpServletRequest request) {
-    	List<News> list;
+	public String listCosmetic(HttpServletRequest request) {
+    	List<Cosmetic> cosmetic11;
 		try {
-			list = dao.getAll();
-	    	request.setAttribute("newslist", list);
+			cosmetic11 = dao.getAll();
+	    	request.setAttribute("cosmeticlist", cosmetic11);
 		} catch (Exception e) {
 			e.printStackTrace();
-			ctx.log("뉴스 목록 생성 과정에서 문제 발생!!");
-			request.setAttribute("error", "뉴스 목록이 정상적으로 처리되지 않았습니다!!");
+			ctx.log("화장품 목록 생성 과정에서 문제 발생!!");
+			request.setAttribute("error", "화장품 목록이 정상적으로 처리되지 않았습니다!!");
 		}
-    	return "ch10/newsList.jsp";
+    	return "allPro.jsp";
     }
     
-    public String getNews(HttpServletRequest request) {
-        int aid = Integer.parseInt(request.getParameter("aid"));
+    public String getCosmetic(HttpServletRequest request) {
+        int cosmetic_id = Integer.parseInt(request.getParameter("cosmetic_id"));
         try {
-			News n = dao.getNews(aid);
-			request.setAttribute("news", n);
+			Cosmetic n = dao.getCosmetic(cosmetic_id);
+			request.setAttribute("cosmetic", n);
 		} catch (SQLException e) {
 			e.printStackTrace();
-			ctx.log("뉴스를 가져오는 과정에서 문제 발생!!");
-			request.setAttribute("error", "뉴스를 정상적으로 가져오지 못했습니다!!");
+			ctx.log("화장품 정보를 가져오는 과정에서 문제 발생!!");
+			request.setAttribute("error", "화장품 정보를 정상적으로 가져오지 못했습니다!!");
 		}
 
-    	return "ch10/newsView.jsp";
+    	return "cosmetic/CosmeticView.jsp";
     }
         
 	private String getFilename(Part part) {

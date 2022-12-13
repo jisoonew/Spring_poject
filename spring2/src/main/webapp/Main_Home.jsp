@@ -30,7 +30,7 @@
 
       <!-- 로고 사진 누르면 홈으로 돌아오기 -->
       <a class="navbar-brand" href="Main_Home.jsp">
-        <img src="./로고.png" width="200" height="70">
+        <img src="로고.png" width="200" height="70">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,7 +41,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="main_home.html">Home</a>
+            <a class="nav-link active" aria-current="page" href="Main_Home.jsp">Home</a>
           </li>
 
           <!-- 화장품 드롭다운 -->
@@ -53,10 +53,10 @@
             </a>
 
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="newPro.html">신제품</a></li>
+              <li><a class="dropdown-item" href="newPro.jsp">신제품</a></li>
               <hr class="dropdown-divider">
 
-              <li><a class="dropdown-item" href="bestPro.html">인기상품</a></li>
+              <li><a class="dropdown-item" href="bestPro.jsp">인기상품</a></li>
               <hr class="dropdown-divider">
 
               <!-- <li><a class="dropdown-item" href="#">카테고리</a></li>
@@ -76,20 +76,20 @@
             </a>
 
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="faq.html">FAQ</a></li>
+              <li><a class="dropdown-item" href="faq.jsp">FAQ</a></li>
                 <hr class="dropdown-divider">
 
-              <li><a class="dropdown-item" href="announce.html">공지사항</a></li>
+              <li><a class="dropdown-item" href="announce.jsp">공지사항</a></li>
               <hr class="dropdown-divider">
 
-              <li><a class="dropdown-item" href="ask.html">문의사항</a></li>
+              <li><a class="dropdown-item" href="ask.jsp">문의사항</a></li>
             </ul>
 
           </li>
 
       </div>
 
-      <a href="login.html" style="color: white ;">
+      <a href="login.jsp" style="color: white ;">
         <form class="d-flex " role="logout">
           <button id="logoutmenu" type="button" class="btn btn-light justify-content-md-end">로그인</button>
         </form>
@@ -100,7 +100,7 @@
 
 
    <!-- ==================================== 여기까지 네비게이션 바 내용이였음 ======================================== -->
-  <img src="./화장품2.jpg" class="w-100 h-auto"; >
+  <img src="화장품2.jpg" class="w-100 h-auto"; >
 
   <!-- 최신 레시피 캐러셀 -->
   <!-- <h3 style="color:black; text-align: center;">

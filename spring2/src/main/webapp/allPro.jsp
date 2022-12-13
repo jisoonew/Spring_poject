@@ -26,7 +26,7 @@
     <div class="container-fluid">
 
       <!-- 로고 사진 누르면 홈으로 돌아오기 -->
-      <a class="navbar-brand" href="main_home.html">
+      <a class="navbar-brand" href="main_home.jsp">
         <img src="./로고.png" width="200" height="70">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -59,7 +59,7 @@
               <!-- <li><a class="dropdown-item" href="#">카테고리</a></li>
               <hr class="dropdown-divider"> -->
 
-              <li><a class="dropdown-item" href="allPro.html">전체보기</a></li>
+              <li><a class="dropdown-item" href="allPro.jsp">전체보기</a></li>
             </ul>
 
           </li>
@@ -154,7 +154,22 @@
   </ul>
 </nav>
 
-
+<div class="container w-75 mt-5 mx-auto">
+			<hr>
+			<ul class="list-group">
+				<c:forEach var="cosmetic" items="${cosmeticlist}" varStatus="status">
+					<li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"><a href="cosmetic.nhn?action=getCosmetic&cosmetic_id=${cosmetic.cosmetic_id}" class="text-decoration-none">[${status.count}] ${cosmetic.cosmetic_name}</a>
+					</li>
+				</c:forEach> 
+			</ul>
+			<hr>
+			<c:if test="${error != null}">
+				<div class="alert alert-danger alert-dismissible fade show mt-3">
+					에러 발생: ${error}
+					<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+				</div>
+			</c:if>
+		</div>
 <!-- ==================================== 여기까지 상단 2번째 네비게이션 바 내용이였음 ======================================== -->
 <br>
 <br>

@@ -23,7 +23,7 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-warning bg-opacity-25 navbar-fixed-top">
     <div class="container-fluid">
 <!-- 사진 누르면 홈으로 돌아오기 -->
-      <a class="navbar-brand" href="main_home.html">
+      <a class="navbar-brand" href="Main_Home.jsp">
         <img src="./요리조리1.png" width="200" height="70" style="border: 01px solid rgba(0, 0, 0, 0.363);">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -34,7 +34,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="main_home.html">Home</a>
+            <a class="nav-link active" aria-current="page" href="Main_Home.jsp"">Home</a>
           </li>
 
           <li class="nav-item dropdown">
@@ -43,7 +43,7 @@
               회원
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="user_list.html">회원 관리</a></li>
+              <li><a class="dropdown-item" href="user_list.jsp">회원 관리</a></li>
             </ul>
           </li>
 
@@ -53,7 +53,7 @@
               레시피
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="recipe.html">등록 및 관리</a></li>
+              <li><a class="dropdown-item" href="recipe.jsp">등록 및 관리</a></li>
               <li>
                 <!-- <hr class="dropdown-divider">
               </li>
