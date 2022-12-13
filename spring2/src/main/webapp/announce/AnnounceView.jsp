@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>공지사항</title>
+    <title>FAQ</title>
 
       <!-- 부트 스트랩 연결 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -70,18 +70,16 @@
             </a>
 
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="faq.html">FAQ</a></li>
+              <li><a class="dropdown-item" href="faq.jsp">FAQ</a></li>
                 <hr class="dropdown-divider">
 
-              <li><a class="dropdown-item" href="announce.html">공지사항</a></li>
+              <li><a class="dropdown-item" href="announce.jsp">공지사항</a></li>
               <hr class="dropdown-divider">
 
-              <li><a class="dropdown-item" href="ask.html">문의사항</a></li>
+              <li><a class="dropdown-item" href="ask.jsp">문의사항</a></li>
             </ul>
 
           </li>
-
-
 
       </div>
 
@@ -109,47 +107,18 @@
         <!-- 상단바 아래의 컨텐츠 부분 -->
         <div class="container">
           <!-- <hr class="myHr">  -->
-          <div class="row">
-              <div class="col-7">
-                  <h2>공지사항</h2>
-                </div>
-          </div>
-          <br>
-        
-         
-          <div class="row">
-              <div class="col">
-                  <table class="table table-hover mytb" id="announceTable">
-                          <thead class="table-light">
-                              <thead>
-                                
-                                <tr>
-                                  <th scope="col">#</th>
-                                  <th scope="col">제목</th>
-                              </tr>
-                              </thead>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <!-- <td>1</td>
-                              <td>긴급!! 꼭 봐주세요</td>
-                              <td></td>
-                              <td></td>
-                              <td>우지은</td>
-                              <td>jieun987</td>
-                              <td>관리자</td>
-                            </tr> -->
-                          </tbody>
-                          
-                        </table>
-              </div>
-          </div>
-          <br>
-          <br>
 
+		<div class="container w-110 mt-5 mx-auto">
+			<h2>${announce.announce_title}</h2>
+			<hr>
+			<div class="card w-40 mx-auto">
+					<h4 class="card-title">${announce.announce_content}</h4>
+			</div>
+			<hr>
+			<a href="javascript:history.back()" class="btn btn-primary"><< Back</a>
+		</div>
+		
       </div>
-      
-         
       </div>
       </div>
     </div>

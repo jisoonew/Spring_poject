@@ -1,4 +1,4 @@
-package cosmetic;
+package announce;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
@@ -19,19 +19,19 @@ import javax.servlet.http.Part;
 import org.apache.commons.beanutils.BeanUtils;
 
 
-@WebServlet("/cosmetic.nhn")
+@WebServlet("/announce.nhn")
 @MultipartConfig(maxFileSize=1024*1024*2, location="C:/")
-public class CosmeticController extends HttpServlet {
+public class AnnounceController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-	private CosmeticDAO dao;
+	private AnnounceDAO dao;
 	private ServletContext ctx;
 	
-	private final String START_PAGE = "cosmetic/CosmeticList.jsp";
+	private final String START_PAGE = "announce/AnnounceList.jsp";
 	
 	public void init(ServletConfig config) throws ServletException {
 		super.init(config);
-		dao = new CosmeticDAO();
+		dao = new AnnounceDAO();
 		ctx = getServletContext();		
 	}
 
@@ -39,13 +39,13 @@ public class CosmeticController extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		String action = request.getParameter("action");
 		
-		dao = new CosmeticDAO();
+		dao = new AnnounceDAO();
 		
 		Method m;
 		String view = null;
 		
 		if (action == null) {
-			action = "listCosmetic";
+			action = "listAnnounce";
 		}
 		
 		try {
@@ -70,44 +70,31 @@ public class CosmeticController extends HttpServlet {
 	}
     
 
-	public String deleteCosmetic(HttpServletRequest request) {
-    	int aid = Integer.parseInt(request.getParameter("cosmetic_id"));
+	public String listAnnounce(HttpServletRequest request) {
+    	List<Announce> announce;
 		try {
-			dao.delCosmetic(aid);
-		} catch (SQLException e) {
-			e.printStackTrace();
-			ctx.log("화장품 삭제 과정에서 문제 발생!!");
-			request.setAttribute("error", "화장품 정보가 정상적으로 삭제되지 않았습니다!!");
-			return listCosmetic(request);
-		}
-		return "redirect:/cosmetic.nhn?action=listCosmetic";
-	}
-
-	public String listCosmetic(HttpServletRequest request) {
-    	List<Cosmetic> cosmetic11;
-		try {
-			cosmetic11 = dao.getAll();
-	    	request.setAttribute("cosmeticlist", cosmetic11);
+			announce = dao.getAll();
+	    	request.setAttribute("announcelist", announce);
 		} catch (Exception e) {
 			e.printStackTrace();
-			ctx.log("화장품 목록 생성 과정에서 문제 발생!!");
-			request.setAttribute("error", "화장품 목록이 정상적으로 처리되지 않았습니다!!");
+			ctx.log("공지사항 목록 생성 과정에서 문제 발생!!");
+			request.setAttribute("error", "공지사항 목록이 정상적으로 처리되지 않았습니다!!");
 		}
-    	return "allPro.jsp";
+    	return "announce/AnnounceList.jsp";
     }
     
-    public String getCosmetic(HttpServletRequest request) {
-        int cosmetic_id = Integer.parseInt(request.getParameter("cosmetic_id"));
+    public String getAnnounce(HttpServletRequest request) {
+        int announce_id = Integer.parseInt(request.getParameter("announce_id"));
         try {
-			Cosmetic n = dao.getCosmetic(cosmetic_id);
-			request.setAttribute("cosmetic", n);
+			Announce n = dao.getAnnounce(announce_id);
+			request.setAttribute("announce", n);
 		} catch (SQLException e) {
 			e.printStackTrace();
-			ctx.log("화장품 정보를 가져오는 과정에서 문제 발생!!");
-			request.setAttribute("error", "화장품 정보를 정상적으로 가져오지 못했습니다!!");
+			ctx.log("공지사항 정보를 가져오는 과정에서 문제 발생!!");
+			request.setAttribute("error", "공지사항 정보를 정상적으로 가져오지 못했습니다!!");
 		}
 
-    	return "cosmetic/CosmeticView.jsp";
+    	return "announce/AnnounceView.jsp";
     }
         
 }

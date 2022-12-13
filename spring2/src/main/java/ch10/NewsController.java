@@ -20,7 +20,7 @@ import org.apache.commons.beanutils.BeanUtils;
 
 
 @WebServlet("/news.nhn")
-@MultipartConfig(maxFileSize=1024*1024*2, location="c:/Temp/img")
+@MultipartConfig(maxFileSize=1024*1024*2, location="c:/img")
 public class NewsController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -116,7 +116,7 @@ public class NewsController extends HttpServlet {
 			ctx.log("뉴스 목록 생성 과정에서 문제 발생!!");
 			request.setAttribute("error", "뉴스 목록이 정상적으로 처리되지 않았습니다!!");
 		}
-    	return "ch10/newsList.jsp";
+    	return "newsList.jsp";
     }
     
     public String getNews(HttpServletRequest request) {
@@ -130,7 +130,7 @@ public class NewsController extends HttpServlet {
 			request.setAttribute("error", "뉴스를 정상적으로 가져오지 못했습니다!!");
 		}
 
-    	return "ch10/newsView.jsp";
+    	return "newsView.jsp";
     }
         
 	private String getFilename(Part part) {

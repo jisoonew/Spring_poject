@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>공지사항</title>
+    <title>FAQ</title>
 
       <!-- 부트 스트랩 연결 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -26,7 +26,7 @@
     <div class="container-fluid">
 
       <!-- 로고 사진 누르면 홈으로 돌아오기 -->
-      <a class="navbar-brand" href="main_home.html">
+      <a class="navbar-brand" href="Main_Home.jsp">
         <img src="./로고.png" width="200" height="70">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -38,7 +38,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="main_home.html">Home</a>
+            <a class="nav-link active" aria-current="page" href="Main_Home.jsp">Home</a>
           </li>
 
           <!-- 화장품 드롭다운 -->
@@ -50,13 +50,13 @@
             </a>
 
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="newPro.html">신제품</a></li>
+              <li><a class="dropdown-item" href="newPro.jsp">신제품</a></li>
               <hr class="dropdown-divider">
 
-              <li><a class="dropdown-item" href="bestPro.html">인기상품</a></li>
+              <li><a class="dropdown-item" href="bestPro.jsp">인기상품</a></li>
               <hr class="dropdown-divider">
 
-              <li><a class="dropdown-item" href="allPro.html">전체보기</a></li>
+              <li><a class="dropdown-item" href="allPro.jsp">전체보기</a></li>
             </ul>
 
           </li>
@@ -70,18 +70,16 @@
             </a>
 
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="faq.html">FAQ</a></li>
+              <li><a class="dropdown-item" href="faq.jsp">FAQ</a></li>
                 <hr class="dropdown-divider">
 
-              <li><a class="dropdown-item" href="announce.html">공지사항</a></li>
+              <li><a class="dropdown-item" href="announce.jsp">공지사항</a></li>
               <hr class="dropdown-divider">
 
-              <li><a class="dropdown-item" href="ask.html">문의사항</a></li>
+              <li><a class="dropdown-item" href="ask.jsp">문의사항</a></li>
             </ul>
 
           </li>
-
-
 
       </div>
 
@@ -111,45 +109,30 @@
           <!-- <hr class="myHr">  -->
           <div class="row">
               <div class="col-7">
-                  <h2>공지사항</h2>
+                  <h2>자주 묻는 질문</h2>
                 </div>
           </div>
-          <br>
-        
-         
-          <div class="row">
-              <div class="col">
-                  <table class="table table-hover mytb" id="announceTable">
-                          <thead class="table-light">
-                              <thead>
-                                
-                                <tr>
-                                  <th scope="col">#</th>
-                                  <th scope="col">제목</th>
-                              </tr>
-                              </thead>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <!-- <td>1</td>
-                              <td>긴급!! 꼭 봐주세요</td>
-                              <td></td>
-                              <td></td>
-                              <td>우지은</td>
-                              <td>jieun987</td>
-                              <td>관리자</td>
-                            </tr> -->
-                          </tbody>
-                          
-                        </table>
-              </div>
-          </div>
-          <br>
-          <br>
+          <hr>
+          
 
+		<div class="container w-100 mx-auto">
+
+			<ul class="list-group">
+				<c:forEach var="faq" items="${faqlist}" varStatus="status">
+					<li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"><a href="FAQ.nhn?action=getFAQ&faq_id=${faq.faq_id}" class="text-decoration-none">[${status.count}] ${faq.faq_title}</a>
+					</li>
+				</c:forEach> 
+			</ul>
+
+			<c:if test="${error != null}">
+				<div class="alert alert-danger alert-dismissible fade show mt-3">
+					에러 발생: ${error}
+					<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+				</div>
+			</c:if>
+		</div>
+		
       </div>
-      
-         
       </div>
       </div>
     </div>
