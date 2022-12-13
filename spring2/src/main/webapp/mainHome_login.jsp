@@ -1,24 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>전체상품</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HomePage</title>
 
-      <!-- 부트 스트랩 연결 -->
+  <!-- 부트 스트랩 연결 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-  integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-<!-- 부트스트랩 CSS만 붙여왔을 때는 드롭다운이 작동을 안함, 그래서 부트스르탭 번들 코드를 붙여넣으니까 작동함 -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+  </script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
+
 <body style="background-color: rgb(255, 255, 255);">
 
   <!-- 네비게이션 바 -->
@@ -26,7 +27,7 @@
     <div class="container-fluid">
 
       <!-- 로고 사진 누르면 홈으로 돌아오기 -->
-      <a class="navbar-brand" href="main_home.jsp">
+      <a class="navbar-brand" href="main_home.html">
         <img src="img/로고.png" width="200" height="70">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -50,10 +51,10 @@
             </a>
 
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="newPro.html">신제품</a></li>
+              <li><a class="dropdown-item" href="newPro.jsp">신제품</a></li>
               <hr class="dropdown-divider">
 
-              <li><a class="dropdown-item" href="bestPro.html">인기상품</a></li>
+              <li><a class="dropdown-item" href="bestPro.jsp">인기상품</a></li>
               <hr class="dropdown-divider">
 
               <!-- <li><a class="dropdown-item" href="#">카테고리</a></li>
@@ -79,18 +80,10 @@
               <li><a class="dropdown-item" href="/announce.nhn">공지사항</a></li>
               <hr class="dropdown-divider">
 
-              <li><a class="dropdown-item" href="ask.html">문의사항</a></li>
+              <li><a class="dropdown-item" href="ask.jsp">문의사항</a></li>
             </ul>
 
           </li>
-
-        <!-- <a id="main_name" style="text-decoration-line: none; color:black" class="mx-4"></a>
-
-        <a href="admin_login.html" style="color: white ;">
-          <form class="d-flex" role="logout">
-            <button id="logoutmenu" type="button" class="btn btn-light">로그아웃</button>
-          </form>
-        </a> -->
 
       </div>
 
@@ -98,10 +91,11 @@
       <button class="btn btn-primary btn-danger" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
         <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
       </svg></button>
+
     </div>
   </nav>
 
-<!-- 오프 캔버스 버튼 누르면 나오는 작은 페이지 구성 -->
+  <!-- 오프 캔버스 버튼 누르면 나오는 작은 페이지 구성 -->
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
   <div class="offcanvas-header" style="background-color:rgb(247, 157, 157) ;">
     <h5 class="offcanvas-title" id="offcanvasRightLabel">My Page</h5>
@@ -149,96 +143,61 @@
           </form>
   </div>
 </div>
- <!-- ==================================== 여기까지 상단 네비게이션 바 내용이였음 ======================================== -->
+   <!-- ==================================== 여기까지 네비게이션 바 내용이였음 ======================================== -->
+  <img src="img/화장품2.jpg" class="w-100 h-auto"; >
 
- <nav class="navbar navbar-expand-lg bg-danger bg-opacity-50 justify-content-center" >
-  <ul class="nav justify-content-center">
+  <!-- 최신 레시피 캐러셀 -->
+  <!-- <h3 style="color:black; text-align: center;">
 
-    <li class="nav-item">
-      <a class="nav-link link-dark active" aria-current="page" href="/cosmetic.nhn">ALL</a>
-    </li>
+    &lt;신제품&gt;
+    
+  </h3>
+  <br>
+  <div id="carouselExampleCaptions" class="carousel carousel-dark slide" data-bs-ride="carousel">
+    <div class="carousel-indicators" style="color:white ;">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+        aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+        aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner" style="text-align: center ;">
 
-    <li class="nav-item dropdown">
-      <a class="nav-link link-dark dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        EYE
-      </a>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="/shadow.nhn">Eye Shadow</a></li>
-        <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="/eye_liner.nhn">Eye Liner</a></li>
-      </ul>
-    </li>
-
-    <li class="nav-item dropdown">
-      <a class="nav-link link-dark dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        LIP
-      </a>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="/tint.nhn">Tint</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-
-
-<div class="container w-75 mt-5 mx-auto">
-			<hr>
-			<ul class="list-group">
-				<c:forEach var="shadow" items="${shadowlist}" varStatus="status">
-					<li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"><a href="shadow.nhn?action=getShadow&cosmetic_id=${shadow.cosmetic_id}" class="text-decoration-none">[${status.count}] ${shadow.cosmetic_name}</a>
-					</li>
-				</c:forEach> 
-			</ul>
-			<hr>
-			<c:if test="${error != null}">
-				<div class="alert alert-danger alert-dismissible fade show mt-3">
-					에러 발생: ${error}
-					<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-				</div>
-			</c:if>
-		</div>
-		
-<!-- ==================================== 여기까지 상단 2번째 네비게이션 바 내용이였음 ======================================== -->
-<br>
-<br>
-
-          <nav aria-label="Page navigation example" class="link-dark">
-            <ul class="pagination justify-content-center">
-              <li class="page-item">
-                <a class="page-link link-dark" href="#" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                  </a>
-              </li>
-              <li class="page-item">
-                <a class="page-link link-dark" href="#" aria-label="Previous">
-                  <span aria-hidden="true">&lt;</span>
-                  </a>
-              </li>
-              <li class="page-item"><a class="page-link link-dark" href="#">1</a></li>
-              <li class="page-item"><a class="page-link link-dark" href="#">2</a></li>
-              <li class="page-item"><a class="page-link link-dark" href="#">3</a></li>
-              <li class="page-item"><a class="page-link link-dark" href="#">4</a></li>
-              <li class="page-item"><a class="page-link link-dark" href="#">5</a></li>
-              <li class="page-item">
-                <a class="page-link link-dark" href="#" aria-label="Next">
-                  <span aria-hidden="true">&gt;</span>
-                </a>
-              </li>
-              <li class="page-item">
-                <a class="page-link link-dark" href="#" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
-
+      <div class="carousel-item active">
+        <img src="소곱창 구이.jpg" width="900" height="600" alt="...">
+        <div class="carousel-caption">
+          <h5 style="color:white ;">소곱창 구이</h5>
+          <p style="color:white ;">지글지글 맛있는 소곱창 구이</p>
+        </div>
       </div>
-      
-         
+
+      <div class="carousel-item">
+        <img src="알탕.jpg" width="900" height="600" alt="...">
+        <div class="carousel-caption">
+          <h5 style="color:white ;">알탕</h5>
+          <p style="color:white ;">해장하기 딱 좋은 얼큰 시원 알탕</p>
+        </div>
       </div>
+
+      <div class="carousel-item">
+        <img src="육회.jpg" width="900" height="600" alt="...">
+        <div class="carousel-caption">
+          <h5 style="color:white ;">육회</h5>
+          <p style="color:white ;">입에서 살살 녹는 육회</p>
+        </div>
       </div>
     </div>
-  </nav>
 
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">이전</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">다음</span>
+    </button>
+  </div> -->
+  
 </body>
 </html>

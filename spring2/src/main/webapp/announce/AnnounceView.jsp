@@ -27,7 +27,7 @@
 
       <!-- 로고 사진 누르면 홈으로 돌아오기 -->
       <a class="navbar-brand" href="main_home.html">
-        <img src="./로고.png" width="200" height="70">
+        <img src="img/로고.png" width="200" height="70">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
