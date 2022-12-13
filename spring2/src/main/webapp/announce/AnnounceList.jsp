@@ -56,7 +56,7 @@
               <li><a class="dropdown-item" href="bestPro.html">인기상품</a></li>
               <hr class="dropdown-divider">
 
-              <li><a class="dropdown-item" href="allPro.html">전체보기</a></li>
+              <li><a class="dropdown-item" href="/cosmetic.nhn">전체보기</a></li>
             </ul>
 
           </li>
@@ -70,10 +70,13 @@
             </a>
 
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="FAQ/FAQList.jsp">FAQ</a></li>
-                <hr class="dropdown-divider">
+            
 
-              <li><a class="dropdown-item" href="announce.jsp">공지사항</a></li>
+              <li><a class="dropdown-item" href="/FAQ.nhn">FAQ</a></li>
+
+                <hr class="dropdown-divider">
+		
+              <li><a class="dropdown-item" href="/announce.nhn">공지사항</a></li>
               <hr class="dropdown-divider">
 
               <li><a class="dropdown-item" href="ask.html">문의사항</a></li>

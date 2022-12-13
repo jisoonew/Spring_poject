@@ -1,4 +1,4 @@
-package cosmetic;
+package tint;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,7 +8,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CosmeticDAO {
+import cosmetic.Cosmetic;
+
+public class TintDAO {
 	final String JDBC_DRIVER = "org.h2.Driver";
 	final String JDBC_URL = "jdbc:h2:tcp://localhost/~/jwbookdb";
 	
@@ -23,18 +25,18 @@ public class CosmeticDAO {
 		return conn;
 	}
 	
-	public List<Cosmetic> getAll() throws Exception {
+	public List<Tint> getAll() throws Exception {
 		Connection conn = open();
-		List<Cosmetic> CosmeticList = new ArrayList<>();
+		List<Tint> CosmeticList = new ArrayList<>();
 		
-		String sql = "select cosmetic_id, cosmetic_name, cosmetic_price, cosmetic_img from cosmetic";
+		String sql = "select cosmetic_id, cosmetic_name, cosmetic_price, cosmetic_img from cosmetic where cosmetic_type='Tint'";
 		
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		ResultSet rs = pstmt.executeQuery();
 		
 		try {
 			while(rs.next()) {
-				Cosmetic n = new Cosmetic();
+				Tint n = new Tint();
 				n.setCosmetic_id(rs.getInt("cosmetic_id"));
 				n.setCosmetic_name(rs.getString("cosmetic_name"));
 				n.setCosmetic_price(rs.getInt("cosmetic_price")); 
@@ -49,10 +51,11 @@ public class CosmeticDAO {
 		return CosmeticList;
 	}
 	
-	public Cosmetic getCosmetic(int cosmetic_id) throws SQLException {
+	
+	public Tint getTint(int cosmetic_id) throws SQLException {
 		Connection conn = open();
 		
-		Cosmetic n = new Cosmetic();
+		Tint n = new Tint();
 		String sql = "select cosmetic_id, cosmetic_name, cosmetic_price, cosmetic_img from cosmetic where cosmetic_id=?";
 	
 		PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -74,31 +77,4 @@ public class CosmeticDAO {
 		}
 		return n;
 	}
-	
-	public Cosmetic getTint(int cosmetic_id) throws SQLException {
-		Connection conn = open();
-		
-		Cosmetic n = new Cosmetic();
-		String sql = "select cosmetic_id, cosmetic_name, cosmetic_price, cosmetic_img from cosmetic where cosmetic_type='Tint'";
-	
-		PreparedStatement pstmt = conn.prepareStatement(sql);
-		pstmt.setInt(1, cosmetic_id);
-		ResultSet rs = pstmt.executeQuery();
-		
-		rs.next();
-		
-		try {
-			n.setCosmetic_id(rs.getInt("cosmetic_id"));
-			n.setCosmetic_name(rs.getString("cosmetic_name"));
-			n.setCosmetic_price(rs.getInt("cosmetic_price"));
-			n.setCosmetic_img(rs.getString("cosmetic_img"));
-
-			pstmt.executeQuery();
-			return n;
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-		return n;
-	}
-	
 }

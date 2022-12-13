@@ -117,7 +117,6 @@
 			<hr>
 			<a href="javascript:history.back()" class="btn btn-primary"><< Back</a>
 		</div>
-		
       </div>
       </div>
       </div>

@@ -59,7 +59,7 @@
               <!-- <li><a class="dropdown-item" href="#">카테고리</a></li>
               <hr class="dropdown-divider"> -->
 
-              <li><a class="dropdown-item" href="allPro.jsp">전체보기</a></li>
+              <li><a class="dropdown-item" href="/cosmetic.nhn">전체보기</a></li>
             </ul>
 
           </li>
@@ -73,10 +73,10 @@
             </a>
 
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="faq.html">FAQ</a></li>
+              <li><a class="dropdown-item" href="/FAQ.nhn">FAQ</a></li>
                 <hr class="dropdown-divider">
 
-              <li><a class="dropdown-item" href="announce.html">공지사항</a></li>
+              <li><a class="dropdown-item" href="/announce.nhn">공지사항</a></li>
               <hr class="dropdown-divider">
 
               <li><a class="dropdown-item" href="ask.html">문의사항</a></li>
@@ -124,9 +124,9 @@
         EYE
       </a>
       <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Eye Shadow</a></li>
+        <li><a class="dropdown-item" href="/shadow.nhn">Eye Shadow</a></li>
         <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="#">Eye Liner</a></li>
+        <li><a class="dropdown-item" href="/eye_liner.nhn">Eye Liner</a></li>
       </ul>
     </li>
 
@@ -135,11 +135,12 @@
         LIP
       </a>
       <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Tint</a></li>
+        <li><a class="dropdown-item" href="/tint.nhn">Tint</a></li>
       </ul>
     </li>
   </ul>
 </nav>
+
 
 <div class="container w-75 mt-5 mx-auto">
 			<hr>
@@ -157,6 +158,7 @@
 				</div>
 			</c:if>
 		</div>
+		
 <!-- ==================================== 여기까지 상단 2번째 네비게이션 바 내용이였음 ======================================== -->
 <br>
 <br>

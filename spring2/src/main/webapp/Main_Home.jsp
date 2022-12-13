@@ -62,7 +62,7 @@
               <!-- <li><a class="dropdown-item" href="#">카테고리</a></li>
               <hr class="dropdown-divider"> -->
 
-              <li><a class="dropdown-item" href="allPro.jsp">전체보기</a></li>
+              <li><a class="dropdown-item" href="/cosmetic.nhn">전체보기</a></li>
             </ul>
 
           </li>
@@ -76,10 +76,10 @@
             </a>
 
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="faq.jsp">FAQ</a></li>
+              <li><a class="dropdown-item" href="/FAQ.nhn">FAQ</a></li>
                 <hr class="dropdown-divider">
 
-              <li><a class="dropdown-item" href="announce.jsp">공지사항</a></li>
+              <li><a class="dropdown-item" href="/announce.nhn">공지사항</a></li>
               <hr class="dropdown-divider">
 
               <li><a class="dropdown-item" href="ask.jsp">문의사항</a></li>

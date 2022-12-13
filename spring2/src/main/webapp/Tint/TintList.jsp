@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ</title>
+    <title>전체상품</title>
 
       <!-- 부트 스트랩 연결 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -26,7 +26,7 @@
     <div class="container-fluid">
 
       <!-- 로고 사진 누르면 홈으로 돌아오기 -->
-      <a class="navbar-brand" href="Main_Home.jsp">
+      <a class="navbar-brand" href="main_home.jsp">
         <img src="./로고.png" width="200" height="70">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -50,11 +50,14 @@
             </a>
 
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="newPro.jsp">신제품</a></li>
+              <li><a class="dropdown-item" href="newPro.html">신제품</a></li>
               <hr class="dropdown-divider">
 
-              <li><a class="dropdown-item" href="bestPro.jsp">인기상품</a></li>
+              <li><a class="dropdown-item" href="bestPro.html">인기상품</a></li>
               <hr class="dropdown-divider">
+
+              <!-- <li><a class="dropdown-item" href="#">카테고리</a></li>
+              <hr class="dropdown-divider"> -->
 
               <li><a class="dropdown-item" href="/cosmetic.nhn">전체보기</a></li>
             </ul>
@@ -76,10 +79,18 @@
               <li><a class="dropdown-item" href="/announce.nhn">공지사항</a></li>
               <hr class="dropdown-divider">
 
-              <li><a class="dropdown-item" href="ask.jsp">문의사항</a></li>
+              <li><a class="dropdown-item" href="ask.html">문의사항</a></li>
             </ul>
 
           </li>
+
+        <!-- <a id="main_name" style="text-decoration-line: none; color:black" class="mx-4"></a>
+
+        <a href="admin_login.html" style="color: white ;">
+          <form class="d-flex" role="logout">
+            <button id="logoutmenu" type="button" class="btn btn-light">로그아웃</button>
+          </form>
+        </a> -->
 
       </div>
 
@@ -99,31 +110,47 @@
     ...
   </div>
 </div>
- <!-- ==================================== 여기까지 네비게이션 바 내용이였음 ======================================== -->
+ <!-- ==================================== 여기까지 상단 네비게이션 바 내용이였음 ======================================== -->
 
-    <br>
-    <br>
+ <nav class="navbar navbar-expand-lg bg-danger bg-opacity-50 justify-content-center" >
+  <ul class="nav justify-content-center">
 
-        <!-- 상단바 아래의 컨텐츠 부분 -->
-        <div class="container">
-          <!-- <hr class="myHr">  -->
-          <div class="row">
-              <div class="col-7">
-                  <h2>자주 묻는 질문</h2>
-                </div>
-          </div>
-          <hr>
-          
+    <li class="nav-item">
+      <a class="nav-link link-dark active" aria-current="page" href="/cosmetic.nhn">ALL</a>
+    </li>
 
-		<div class="container w-100 mx-auto">
+    <li class="nav-item dropdown">
+      <a class="nav-link link-dark dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        EYE
+      </a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Eye Shadow</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="#">Eye Liner</a></li>
+      </ul>
+    </li>
 
+    <li class="nav-item dropdown">
+      <a class="nav-link link-dark dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        LIP
+      </a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="/tint.nhn">Tint</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+<div class="container w-75 mt-5 mx-auto">
+			<hr>
 			<ul class="list-group">
-				<c:forEach var="faq" items="${faqlist}" varStatus="status">
-					<li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"><a href="FAQ.nhn?action=getFAQ&faq_id=${faq.faq_id}" class="text-decoration-none">[${status.count}] ${faq.faq_title}</a>
+				<c:forEach var="tint" items="${cosmeticlist}" varStatus="status">
+					<li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"><a href="tint.nhn?action=getTint&cosmetic_id=${tint.cosmetic_id}" class="text-decoration-none">[${status.count}] ${tint.cosmetic_name}</a>
 					</li>
 				</c:forEach> 
 			</ul>
-
+			<hr>
 			<c:if test="${error != null}">
 				<div class="alert alert-danger alert-dismissible fade show mt-3">
 					에러 발생: ${error}
@@ -132,70 +159,47 @@
 			</c:if>
 		</div>
 		
+<!-- ==================================== 여기까지 상단 2번째 네비게이션 바 내용이였음 ======================================== -->
+<br>
+<br>
+
+          <nav aria-label="Page navigation example" class="link-dark">
+            <ul class="pagination justify-content-center">
+              <li class="page-item">
+                <a class="page-link link-dark" href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                  </a>
+              </li>
+              <li class="page-item">
+                <a class="page-link link-dark" href="#" aria-label="Previous">
+                  <span aria-hidden="true">&lt;</span>
+                  </a>
+              </li>
+              <li class="page-item"><a class="page-link link-dark" href="#">1</a></li>
+              <li class="page-item"><a class="page-link link-dark" href="#">2</a></li>
+              <li class="page-item"><a class="page-link link-dark" href="#">3</a></li>
+              <li class="page-item"><a class="page-link link-dark" href="#">4</a></li>
+              <li class="page-item"><a class="page-link link-dark" href="#">5</a></li>
+              <li class="page-item">
+                <a class="page-link link-dark" href="#" aria-label="Next">
+                  <span aria-hidden="true">&gt;</span>
+                </a>
+              </li>
+              <li class="page-item">
+                <a class="page-link link-dark" href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+
       </div>
+      
+         
       </div>
       </div>
     </div>
   </nav>
-
-  <!-- <script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-analytics.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-  
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {
-      apiKey: "AIzaSyD5Siv5pV8pGTXpgd8OAMdQd8JTp390u5w",
-      authDomain: "newrepbook-587cf.firebaseapp.com",
-      databaseURL: "https://newrepbook-587cf-default-rtdb.firebaseio.com",
-      projectId: "newrepbook-587cf",
-      storageBucket: "newrepbook-587cf.appspot.com",
-      messagingSenderId: "986136626008",
-      appId: "1:986136626008:web:bdd8f7beeceae8f66c5b2d",
-      measurementId: "G-C25WXHVHZE"
-    };
-  
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-
-    import {getDatabase, ref, set, update, remove, onValue}
-    from "https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js";
-
-
-    //$('#adminListDbTable td').remove();
-    //console.log("test")
-    var rowNum = 0;
-
-    const db = getDatabase(app);
-    const dbref = ref(db, 'announce');
-
-    onValue(dbref, (snapshot) => {
-      snapshot.forEach((childSnapshot) => {
-        const childKey = childSnapshot.key;
-        const childData = childSnapshot.val();
-
-        rowNum += 1;
-        var row =
-        "<tr><td>" + rowNum +
-          "</td><td>" + childData.title +
-            // "</td><td>" + childData.comment +
-              "</td><td>" + "관리자" +
-              "</td></tr>"
-              console.log(row);
-
-        $(row).appendTo('#announceTable')
-
-      });
-    }, {
-      onlyOnce: true
-    });
-
-
-  </script> -->
 
 </body>
 </html>

@@ -1,4 +1,4 @@
-package cosmetic;
+package eye_liner;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
@@ -18,20 +18,23 @@ import javax.servlet.http.Part;
 
 import org.apache.commons.beanutils.BeanUtils;
 
+import cosmetic.Cosmetic;
+import cosmetic.CosmeticDAO;
 
-@WebServlet("/cosmetic.nhn")
+
+@WebServlet("/eye_liner.nhn")
 @MultipartConfig(maxFileSize=1024*1024*2, location="C:/")
-public class CosmeticController extends HttpServlet {
+public class Eye_LinerController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-	private CosmeticDAO dao;
+	private Eye_LinerDAO dao;
 	private ServletContext ctx;
 	
-	private final String START_PAGE = "allPro.jsp";
+	private final String START_PAGE = "Eye_Liner/Eye_LinerList.jsp";
 	
 	public void init(ServletConfig config) throws ServletException {
 		super.init(config);
-		dao = new CosmeticDAO();
+		dao = new Eye_LinerDAO();
 		ctx = getServletContext();		
 	}
 
@@ -39,13 +42,13 @@ public class CosmeticController extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		String action = request.getParameter("action");
 		
-		dao = new CosmeticDAO();
+		dao = new Eye_LinerDAO();
 		
 		Method m;
 		String view = null;
 		
 		if (action == null) {
-			action = "listCosmetic";
+			action = "listEye_Liner";
 		}
 		
 		
@@ -69,33 +72,32 @@ public class CosmeticController extends HttpServlet {
 			dispatcher.forward(request, response);	
 		}
 	}
-    
-
-	public String listCosmetic(HttpServletRequest request) {
-    	List<Cosmetic> cosmetic11;
+	
+	public String listEye_Liner(HttpServletRequest request) {
+    	List<Eye_Liner> Eye_Liner;
 		try {
-			cosmetic11 = dao.getAll();
-	    	request.setAttribute("cosmeticlist", cosmetic11);
+			Eye_Liner = dao.getAll();
+	    	request.setAttribute("eye_linerlist", Eye_Liner);
 		} catch (Exception e) {
 			e.printStackTrace();
 			ctx.log("화장품 목록 생성 과정에서 문제 발생!!");
 			request.setAttribute("error", "화장품 목록이 정상적으로 처리되지 않았습니다!!");
 		}
-    	return "allPro.jsp";
+    	return "Eye_Liner/Eye_LinerList.jsp";
     }
     
-    public String getCosmetic(HttpServletRequest request) {
+    
+    public String getEye_Liner(HttpServletRequest request) {
         int cosmetic_id = Integer.parseInt(request.getParameter("cosmetic_id"));
         try {
-			Cosmetic n = dao.getCosmetic(cosmetic_id);
-			request.setAttribute("cosmetic", n);
+			Eye_Liner n = dao.getEye_Liner(cosmetic_id);
+			request.setAttribute("eye_liner", n);
 		} catch (SQLException e) {
 			e.printStackTrace();
-			ctx.log("화장품 정보를 가져오는 과정에서 문제 발생!!");
+			ctx.log("틴트 정보를 가져오는 과정에서 문제 발생!!");
 			request.setAttribute("error", "화장품 정보를 정상적으로 가져오지 못했습니다!!");
 		}
 
-    	return "cosmetic/CosmeticView.jsp";
-    }
-        
+    	return "Eye_Liner/Eye_LinerView.jsp";
+    } 
 }
