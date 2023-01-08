@@ -90,11 +90,17 @@ h1 {
 }
 
 /* 우편번호 텍스트에 margin 주기 */
-#postcode {
+#zipNo {
 	margin: 0 100px 0 0;
 }
 
+/* 주소 텍스트에 margin 주기 */
 #address {
+	margin: 5px 0 0 0;
+}
+
+/* 상세주소 텍스트에 margin 주기 */
+#addrDetail {
 	margin: 5px 0 0 0;
 }
 
