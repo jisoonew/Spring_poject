@@ -15,8 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 /**
  * Servlet implementation class LoginAndJoinController
  */
-@WebServlet("/LoginAndJoincontrol")
-public class LoginAndJoinController extends HttpServlet {
+@WebServlet("/Joincontrol")
+public class JoinController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
  
@@ -52,7 +52,7 @@ public class LoginAndJoinController extends HttpServlet {
 			return;
 		} else {
 			request.getSession().setAttribute("messageType", "오류 메시지");
-			request.getSession().setAttribute("messageContent", "이미 존재하는 회원입니다.");
+			request.getSession().setAttribute("messageContent", "이미 존재하거나 사용할 수 없습니다.");
 			response.sendRedirect("join.jsp");
 			return;
 		}

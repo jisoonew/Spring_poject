@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class LoginAndJoinController
+ * Servlet implementation class JoinController
  */
-@WebServlet("/LoginAndJoinCheckController")
-public class LoginAndJoinCheckController extends HttpServlet {
+@WebServlet("/JoinCheckController")
+public class JoinCheckController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	

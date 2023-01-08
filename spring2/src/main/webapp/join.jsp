@@ -11,44 +11,55 @@
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/join.css">
 <title>JOIN</title>
-<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
-<script src="js/bootstrap.js"></script>
 
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-
-// 아이디 중복 체크를 위한 ajax 시작
-function registerCheckFunction() {
-	var id = $('#id').val();
-	$.ajax({
-		type: 'POST',
-		url: './LoginAndJoinCheckController',
-		data: {id: id},
-		success: function(result) {
-			if(result == 1) {
-				$('#checkMessage').html('사용할 수 있는 아이디입니다.');
-				$('#checkType').attr('class', 'modal-content panel-success');
+	// 아이디 중복 체크를 위한 ajax 시작
+	function registerCheckFunction() {
+		var id = $('#id').val();
+		$.ajax({
+			type : 'POST',
+			url : './JoinCheckController',
+			data : {
+				id:id
+			},
+			success : function(result) {
+				if (result == 1) {
+					$('#checkMessage').html('사용할 수 있는 아이디입니다.');
+					$('#checkType')
+							.attr('class', 'modal-content panel-success');
+					$('#idCheckMessage').html('사용 가능한 아이디입니다.');
+					document.getElementById("idCheckMessage").style.color = "blue";
+				} else {
+					$('#checkMessage').html('사용할 수 없는 아이디입니다.');
+					$('#checkType')
+							.attr('class', 'modal-content panel-warning');
+					$('#idCheckMessage').html('사용할 수 없는 아이디입니다.');
+					document.getElementById("idCheckMessage").style.color = "red";
+				}
+				$('#checkModal').modal("show");
 			}
-			else {
-				$('#checkMessage').html('사용할 수 없는 아이디입니다.');
-				$('#checkType').attr('class', 'modal-content panel-warning');
-			}
-			$('#checkModal').modal("show");
-		}
-	})
-}
-//아이디 중복 체크를 위한 ajax 끝
-
-function passwordCheckFunction() {
-	var password = $('#password1').val();
-	var check_password = $('#password2').val();
-	if(password != check_password) {
-		$('#passwordCheckMessage').html('비밀번호가 서로 일치하지 않습니다.');
-	} 
-	if(password == check_password) {
-		$('#passwordCheckMessage').html('');
+		})
 	}
-}
+	//아이디 중복 체크를 위한 ajax 끝
 
+	function passwordCheckFunction() {
+		var password = $('#password1').val();
+		var check_password = $('#password2').val();
+		if (password != check_password) {
+			$('#passwordCheckMessage').html('비밀번호가 서로 일치하지 않습니다.');
+			document.getElementById("passwordCheckMessage").style.color = "red";
+		}
+		if (password == check_password) {
+			$('#passwordCheckMessage').html('비밀번호가 일치합니다.');
+			document.getElementById("passwordCheckMessage").style.color = "blue";
+		}
+	}
+	
+	
 </script>
 </head>
 <body>
@@ -58,65 +69,107 @@ function passwordCheckFunction() {
 
 
 	<!-- 회원가입 폼 시작 -->
-	<div class="container w-25 position-absolute top-50 start-50 translate-middle">
+	<div
+		class="container w-10 position-absolute top-10 start-10 translate-middle">
 
-		<form method="post" action="./LoginAndJoincontrol">
+		<!-- /LoginAndJoincontrol을 이용해서 회원가입 시도 -->
+		<form method="post" action="/Joincontrol">
 			<h1 style="text-align: center;">회원가입</h1>
 
 			<p></p>
+
+
+				<label for="name">Id</label> 
+				
+				<div class="TextButton">
+				<input class="form-control"
+					type="text" id="id" name="id" placeholder="아이디를 입력해주세요">
+					
+				<button class="btn btn-primary" id="ID_btn" onclick="registerCheckFunction();"
+					type="button">중복체크</button>
+			</div>
 			
-			<div class="form-group">
-				<label for="name">Id:</label> <input class="form-control" type="text" id="id" name="id" placeholder="아이디를 입력해주세요"> 
-				<button class="btn btn-primary" onclick="registerCheckFunction();">중복체크</button>
-			</div>
+			<h5 id="idCheckMessage" name="idCheckMessage"></h5>
 
 			<p></p>
 
-			<div class="form-group">
-				<label for="email">Email address:</label> <input type="email"
-					class="form-control" id="email_address" name="email_address" type="button" placeholder="이메일을 입력해주세요">
-			</div>
+
+				<label for="email">Email address</label> <input type="email"
+					class="form-control" id="email_address" name="email_address"
+					placeholder="이메일을 입력해주세요">
+
 
 			<p></p>
 
-			<div class="form-group">
-				<label for="pwd">Password:</label> <input type="password"
-					class="form-control" id="password1" name="password1" onkeyup="passwordCheckFunction();" type="button" placeholder="비밀번호를 입력해주세요">
-			</div>
+				<label for="pwd">Password</label> <input type="password"
+					class="form-control" id="password1" name="password1"
+					onkeyup="passwordCheckFunction();"
+					placeholder="비밀번호를 입력해주세요">
 
 			<p></p>
 
-			<div class="form-group">
-				<label for="pwd">Check Password:</label> <input type="password"
-					class="form-control" id="password2" name="password2" onkeyup="passwordCheckFunction();" type="button" placeholder="비밀번호 확인을 입력해주세요">
+				<label for="pwd">Check Password</label> <input type="password"
+					class="form-control" id="password2" name="password2"
+					onkeyup="passwordCheckFunction();"
+					placeholder="비밀번호 확인을 입력해주세요">
+			
+				<!-- 비밀번호 중복 체크 문구 -->
+				<h5 id="passwordCheckMessage"></h5>
+				
+				<p></p>
+				
+				<label for="address">address</label>
+				
+				<div class="Address">
+				<input type="text"
+					class="form-control" id="postcode" name="postcode" required readonly
+					placeholder="우편 번호">
+					
+					<button class="btn btn-primary" id="address_btn"
+					type="button">주소 검색</button>
+					</div>
+					
+					<input type="text"
+					class="form-control" id="address" name="address" required readonly
+					placeholder="주소">
+					
+				<br>
+				
+				<div style="text-align: center;">
+				<input type="submit" class="btn btn-primary pull-center" id="join"
+					name="join" value="회원가입">
 			</div>
-			<br>
-			<div style="text-align: center;">
-			<h5 style="color: red;" id="passwordCheckMessage"></h5><input type="submit" class="btn btn-primary pull-right" id="join" name="join" value="회원가입">
-			</div>
+
 		</form>
 	</div>
+
 	<%
 	String messageContent = null;
 	if (session.getAttribute("messageContent") != null) {
 		messageContent = (String) session.getAttribute("messageContent");
 	}
+
 	String messageType = null;
 	if (session.getAttribute("messageType") != null) {
 		messageType = (String) session.getAttribute("messageType");
 	}
+
 	if (messageContent != null) {
 	%>
 	<div class="modal fade" id="messageModal" tabindex="-1" role="dialog"
 		aria-hidden="true">
 		<div class="vertical-alignment-helper">
 			<div class="modal-dialog vertical-align-center">
-				<div
-					class="modal-content  <%if (messageType.equals("오류 메시지")) out.println("panel-warning"); else out.println("panel-success");%>">
-					<div class="modal-header panel-heading">
-						<button type="button" class="close" data-dismiss="modal">
-							<span aria-hidden="true">&times;</span> <span class="sr-only">Close</span>
-						</button>
+				<div class="modal-content"
+					<%if (messageType.equals("오류 메시지"))
+							out.println("panel-warning");
+							else
+							out.println("panel-success");%>>
+					<div class="modal-helper panel-heading">
+					<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">&times;</span>
+					<span class="sr-only">close</span>
+					</button>
 						<h4 class="modal-title">
 							<%=messageType%>
 						</h4>
@@ -139,24 +192,16 @@ function passwordCheckFunction() {
 	session.removeAttribute("messageType");
 	}
 	%>
-	
-	
-		<div class="modal fade" id="checkModal" tabindex="-1" role="dialog"
+
+	<div class="modal fade" id="checkModal" tabindex="-1" role="dialog"
 		aria-hidden="true">
 		<div class="vertical-alignment-helper">
 			<div class="modal-dialog vertical-align-center">
 				<div id="checkType" class="modal-content panel-info">
-					<div class="modal-header panel-heading">
-						<button type="button" class="close" data-dismiss="modal">
-							<span aria-hidden="true">&times;</span>
-							<span class="sr-only">Close</span>
-						</button>
-						<h4 class="modal-title">
-							확인 메시지
-						</h4>
+					<div class="modal-helper panel-heading">
+						<h4 class="modal-title">확인 메시지</h4>
 					</div>
-					<div class="modal-body" id="checkMessage">
-					</div>
+					<div class="modal-body" id="checkMessage"></div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-primary" data-dismiss="modal">확인</button>
 					</div>

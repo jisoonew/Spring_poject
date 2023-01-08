@@ -10,6 +10,7 @@ body {
 	background-color: rgb(243, 228, 168);
 }
 
+
 thread th {
 	background-color: #006DCC;
 	color:white;
@@ -47,26 +48,56 @@ h1 {
 	display: table;
 	height: 100%;
 	width: 100%;
-	pointer-events:none;
+	pointer-events: none;
 }
 
 .vertical-align-center {
 	display: table-cell;
 	vertical-align: middle;
-	pointer-events:none;
+	pointer-events: none;
 }
 
 .modal-content {
 	height: inherit;
 	width: inherit;
 	margin: 0 auto;
-	pointer-events:none;
+	pointer-events: none;
 }
 
 .container {
-		width: 300px;
-    position: absolute;
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-50%);
+		width: 350px;
+		position: absolute;
+		top:50%;
+		left:50%;
+		transform: translate(-50%,-50%);
 }
+
+.TextButton {
+	display: flex;
+	justify-content: space-around;
+    align-items: center;
+}
+
+.Address {
+		display: flex;
+	justify-content: space-around;
+    align-items: center;
+}
+
+/* 중복체크 버튼에 margin 주기 */
+#ID_btn {
+	margin: 0px 0px 0px 5px;
+}
+
+/* 우편번호 텍스트에 margin 주기 */
+#postcode {
+	margin: 0 100px 0 0;
+}
+
+#address {
+	margin: 5px 0 0 0;
+}
+
+
+
+

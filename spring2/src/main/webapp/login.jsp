@@ -24,6 +24,7 @@
 
   <!-- 로그인 폼 시작 -->
   <div class="container w-25 position-absolute top-50 start-50 translate-middle">
+  <form method = "post" action="./userLogin">
     <h1 style="text-align: center;">로그인</h1>
 
     <br>
@@ -32,14 +33,14 @@
       <div class="#">
 
         <label for="email">Id:</label>
-        <input type="email" class="form-control " id="email">
+        <input type="text" class="form-control " id="id" name="id">
       </div>
 
       <br>
 
       <div class="#">
         <label for="pwd">Password:</label>
-        <input type="password" class="form-control" id="pwd">
+        <input type="password" class="form-control" id="password" name="password">
         <!-- <label>6글자 이상 입력해주세요</label> -->
       </div>
     </div>
@@ -49,7 +50,7 @@
 
     <div style="text-align: center;">
 
-      <button type="button" id="loginmenu" class="btn btn-warning login">로그인</button>
+      <button type="submit" id="loginmenu" class="btn btn-warning login">로그인</button>
 
        <a href="join.html" style="text-decoration-line: none;">
       <button type="button" id="joinmenu" class="btn btn-warning ">회원가입</button>
@@ -58,9 +59,10 @@
     <br>
     <br>
 
-    <label>아이디가 기억나지 않으십니까?</label><a href="findID.html"><label class="ms-2" style="color:rgb(48, 188, 253);">아이디 찾기</label></a>
-    <label>비밀번호가 기억나지 않으십니까?</label><a href="findPW.html"><label class="ms-2" style="color:rgb(48, 188, 253);">비밀번호 찾기</label></a>
+    <label>아이디가 기억나지 않으십니까?</label><a href="findID.jsp"><label class="ms-2" style="color:rgb(48, 188, 253);">아이디 찾기</label></a>
+    <label>비밀번호가 기억나지 않으십니까?</label><a href="findPW.jsp"><label class="ms-2" style="color:rgb(48, 188, 253);">비밀번호 찾기</label></a>
     </div>
+    </form>
    </div>
 </body>
 

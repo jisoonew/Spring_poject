@@ -9,10 +9,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.tomcat.jdbc.pool.DataSource;
+
 public class LoginAndJoinDAO {
 	Connection conn = null;
 	PreparedStatement pstmt;
 	ResultSet rs;
+	DataSource dataSource;
 	
 	final String JDBC_DRIVER = "org.h2.Driver";
 	final String JDBC_URL = "jdbc:h2:tcp://localhost/~/jwbookdb";
@@ -21,8 +24,6 @@ public class LoginAndJoinDAO {
 		try {
 			Class.forName(JDBC_DRIVER);
 			conn = DriverManager.getConnection(JDBC_URL, "jwbook", "1234");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -45,8 +46,7 @@ public class LoginAndJoinDAO {
 			pstmt.setString(1, id);
 			pstmt.setString(2, email_address);
 			pstmt.setString(3, password);
-			pstmt.executeUpdate();
-			return 1;
+			return pstmt.executeUpdate();
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -61,8 +61,7 @@ public class LoginAndJoinDAO {
 	}
 	
 	public int registerCheck(String id) {
-		ResultSet rs = null;
-		
+		open();
 		String SQL = "select * from loginandjoin where id = ?";
 		try {
 			pstmt = conn.prepareStatement(SQL);
@@ -81,6 +80,40 @@ public class LoginAndJoinDAO {
 				if(rs != null) rs.close();
 				if(pstmt != null) pstmt.close();
 			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return -1; // 데이터베이스 오픈
+	}
+	
+	public int login(String id, String password) {
+		open();
+		ResultSet rs = null;
+		String sql = "select * from loginandjoin where id = ?";
+		
+		try {
+			conn = dataSource.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				if(rs.getString("password").equals(password)) {
+					return 1;
+				}
+				return 2;
+			} else {
+				return 0;
+			}
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+			} catch (Exception e) {
+				// TODO: handle exception
 				e.printStackTrace();
 			}
 		}
