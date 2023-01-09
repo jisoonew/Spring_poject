@@ -11,20 +11,21 @@
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/login.css">
 <title>LOGIN</title>
-<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
-<script src="js/bootstrap.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
-<script type="text/javascript"></script>
 </head>
 
-<body style="background-color: rgb(255, 255, 255);">
+<body>
 
   <!-- 로그인 기능 참고
   https://velog.io/@zl0zb/spring-%EB%A1%9C%EA%B7%B8%EC%9D%B8-%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%A7%8C%EB%93%A4%EA%B8%B0-1 -->
 
   <!-- 로그인 폼 시작 -->
   <div class="container w-25 position-absolute top-50 start-50 translate-middle">
-  <form method = "post" action="./userLogin">
+  <form method="post" action="/userlogin">
     <h1 style="text-align: center;">로그인</h1>
 
     <br>
@@ -44,7 +45,6 @@
         <!-- <label>6글자 이상 입력해주세요</label> -->
       </div>
     </div>
-
     <br>
     <br>
 

@@ -37,15 +37,18 @@ public class LoginAndJoinDAO {
 		}
 	}
 	
-	public int register(String id, String email_address, String password) {
+	public int register(String id, String email_address, String password, String zipNo, String address, String addrDetail) {
 		open();
-		String sql = "INSERT INTO loginandjoin values (?,?,?)";
+		String sql = "INSERT INTO loginandjoin values (?,?,?,?,?,?)";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 			pstmt.setString(2, email_address);
 			pstmt.setString(3, password);
+			pstmt.setString(4, zipNo);
+			pstmt.setString(5, address);
+			pstmt.setString(6, addrDetail);
 			return pstmt.executeUpdate();
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -68,7 +71,7 @@ public class LoginAndJoinDAO {
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			if(rs.next() || id.equals("")) {
-				return 0; // 이미 존재하는 아이디
+				return 0; // 이미 존재하는 아이디거나 아니면 입력 안함
 			}
 			else {
 				return 1; // 가입 가능한 아이디
@@ -89,21 +92,20 @@ public class LoginAndJoinDAO {
 	public int login(String id, String password) {
 		open();
 		ResultSet rs = null;
-		String sql = "select * from loginandjoin where id = ?";
+		String sql = "select password from loginandjoin where id = ?";
 		
 		try {
-			conn = dataSource.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				if(rs.getString("password").equals(password)) {
-					return 1;
+				if(rs.getString(1).equals(password)) {
+					return 1; // 로그인 성공
+				} else {
+					return 0; // 비밀번호 불일치
 				}
-				return 2;
-			} else {
-				return 0;
 			}
+			return -1; // 아이디 없음
 		}
 		catch (Exception e) {
 			// TODO: handle exception
@@ -117,6 +119,6 @@ public class LoginAndJoinDAO {
 				e.printStackTrace();
 			}
 		}
-		return -1;
+		return -2; // 데이터베이스 오류
 	}
 }

@@ -28,6 +28,9 @@ public class JoinController extends HttpServlet {
 		String email_address = request.getParameter("email_address");
 		String password = request.getParameter("password1");
 		String check_password = request.getParameter("password2");
+		String zipNo = request.getParameter("zipNo");
+		String address = request.getParameter("address");
+		String addrDetail = request.getParameter("addrDetail");
 		
 		if(id == null || id.equals("") || email_address == null || email_address.equals("")
 				|| password == null || password.equals("") || check_password == null || check_password.equals("")) {
@@ -43,12 +46,12 @@ public class JoinController extends HttpServlet {
 		return;
 		}
 		
-		int result = new LoginAndJoinDAO().register(id, email_address, password);
+		int result = new LoginAndJoinDAO().register(id, email_address, password, zipNo, address, addrDetail);
 	
 		if(result == 1) {
 			request.getSession().setAttribute("messageType", "성공 메시지");
 			request.getSession().setAttribute("messageContent", "회원가입에 성공했습니다.");
-			response.sendRedirect("join.jsp");
+			response.sendRedirect("login.jsp");
 			return;
 		} else {
 			request.getSession().setAttribute("messageType", "오류 메시지");

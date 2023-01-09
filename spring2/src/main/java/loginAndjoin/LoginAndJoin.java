@@ -4,6 +4,9 @@ public class LoginAndJoin {
 	private String id;
 	private String email_address;
 	private String password;
+	private String zipno;
+	private String address;
+	private String addrDetail;
 	
 	public String getId() {
 		return id;
@@ -23,5 +26,28 @@ public class LoginAndJoin {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public String getZipno() {
+		return zipno;
+	}
+	public void setZipno(String zipno) {
+		this.zipno = zipno;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public String getAddrDetail() {
+		return addrDetail;
+	}
+	public void setAddrDetail(String addrDetail) {
+		this.addrDetail = addrDetail;
+	}
+	@Override
+	public String toString() {
+		return "MemberVO [id= " +id+ ",password = " +password+ " ]";
+	}
+	
 }
 
